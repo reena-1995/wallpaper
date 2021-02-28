@@ -1,0 +1,566 @@
+// ================================================================================================
+//     File Name: content.scss
+//     Description: Page content level SCSS for different screen size, layout and device.
+//     ----------------------------------------------------------------------------------------------
+//     Item Name: Vuexy React Admin Template
+//     Version: 1.0
+//     Author: PIXINVENT
+//     Authuseror URL: http://www.themeforest.net//pixinvent
+// ================================================================================================
+
+// Contest margin left for expanded & collapsed stats width & margin left
+// ================================================================================================
+html {
+  font-size: $base-font-size;
+  height: 100%;
+  letter-spacing: 0.01rem;
+  body {
+    height: 100%;
+    background-color: $body-bg;
+    direction: $body-direction;
+    .content {
+      padding: 0;
+      position: relative;
+      transition: 300ms ease all;
+      backface-visibility: hidden;
+      min-height: calc(100% - 4rem);
+      margin-left: $menu-expanded-width;
+      &.app-content {
+        overflow: hidden;
+        &.show-overlay {
+          .content-overlay {
+            z-index: 10;
+            opacity: 1;
+            ~ .header-navbar-shadow {
+              background: linear-gradient(
+                180deg,
+                rgba(44, 48, 60, 0.9) 44%,
+                rgba(44, 48, 60, 0.43) 73%,
+                rgba(44, 48, 60, 0)
+              );
+            }
+          }
+        }
+        .content-overlay {
+          position: fixed;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba($pure-black, 0.5);
+          cursor: pointer;
+          transition: all 0.7s;
+          z-index: -1;
+          &.show {
+            z-index: 12;
+          }
+        }
+        .content-area-wrapper {
+          height: calc(100% - #{$navbar-height});
+          margin: calc(#{$navbar-height} + 2.7rem) #{$content-padding} 0;
+          // padding: calc(#{$content-padding} - 0.4rem) #{$content-padding};
+          display: flex;
+          position: relative;
+          .content-wrapper {
+            margin-top: 0;
+            height: calc(100vh - 13rem);
+          }
+        }
+      }
+      .content-wrapper {
+        padding: calc(#{$content-padding} - 0.4rem) #{$content-padding} 0;
+        margin-top: $navbar-height + 1;
+        min-height: calc(100vh - 9.75rem);
+        .content-header-title {
+          font-weight: 500;
+          color: $gray-400;
+          margin-right: $spacer;
+        }
+        .content-header-right {
+          .dropdown-toggle {
+            &::after {
+              display: none;
+            }
+          }
+          .btn-icon {
+            padding: 0.8rem;
+          }
+        }
+      }
+    }
+    //for navbar hidden
+    .vertical-layout.navbar-hidden {
+      .app-content {
+        .header-navbar-shadow {
+          display: none;
+        }
+        .content-wrapper {
+          padding: 2.2rem;
+          margin-top: 0;
+          min-height: calc(100vh - 4rem);
+        }
+        .content-area-wrapper {
+          padding: 0;
+          margin-top: 2.5rem;
+        }
+      }
+    }
+
+    // for static navbar
+    .vertical-layout.navbar-static {
+      .app-content {
+        .header-navbar-shadow {
+          display: none;
+        }
+        .navbar-container {
+          padding-left: 2.2rem;
+          padding-right: 1.2rem;
+        }
+        .content-wrapper {
+          padding: 2.2rem;
+          margin-top: 0;
+          padding-top: 1rem;
+        }
+        .content-area-wrapper {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    // for sticky navbar
+    .vertical-layout {
+      &.menu-collapsed {
+        .header-navbar.fixed-top {
+          left: 60px;
+          width: auto;
+        }
+      }
+      &.navbar-sticky {
+        .app-content {
+          .header-navbar-shadow {
+            display: none;
+          }
+          .navbar-container {
+            padding-left: 2.2rem;
+            padding-right: 1rem;
+          }
+          .content-wrapper {
+            padding: 2.2rem;
+            margin-top: 4.65rem;
+          }
+        }
+      }
+    }
+
+    // navbar search width for sticky and static navbar
+    .vertical-layout.navbar-static,
+    .vertical-layout.navbar-sticky {
+      .navbar-container {
+        padding-left: 2.2rem;
+        padding-right: 1rem;
+      }
+    }
+
+    // Fixed layout
+    .vertical-layout.fixed-footer,
+    .horizontal-layout.fixed-footer {
+      .app-content {
+        margin-bottom: 3rem;
+      }
+      .footer {
+        position: fixed;
+        z-index: 1030;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: $white;
+        box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .vertical-layout .menu-swipe-area {
+      width: 30px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1032;
+      height: 100vh;
+    }
+
+    // paragraph line-height
+    p {
+      line-height: 1.5rem;
+    }
+
+    .bg-full-screen-image {
+              
+        background: #0054E2 url("../../../img/pages/vuesax-login-bg.png") no-repeat;      
+        background-size: 100% 50%;
+    }
+
+    /* edit by author nik */
+    .bg-small-login-screen {
+        background: #0054E2 url("../../../img/pages/header_small_form.png") no-repeat;      
+        background-size: 100% 20%;
+    }
+
+    .create-btn{
+      width: 100%;
+      border-radius: 1.4285rem;
+      margin-bottom: 1.5rem;
+      background-color: #00dfc0 !important;
+      color:#131315 !important;
+    }
+
+    .separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #B0CBFF;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}
+
+.custom-model-header{
+  background-color:#00DFC0 !important;
+  
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.custom-model-header h5{
+color:#fff !important;
+font-weight:bold;
+}
+
+
+
+/************************************/
+
+/******Check-boxQ*******/
+.controlQ-group{
+    margin: 15px;
+}
+.controlQ {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 7px;
+    padding-top: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    color:#231E45;
+}
+.controlQ input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.controlQ_indicator {
+    position: absolute;
+    top: -7px;
+    left: 110px ;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #B0CBFF;
+}
+.controlQ-radio .controlQ_indicator {
+    border-radius: 50%;
+}
+
+.controlQ:hover input ~ .controlQ_indicator,
+.controlQ input:focus ~ .controlQ_indicator {
+    background: #fafafa;
+}
+
+.controlQ input:checked ~ .controlQ_indicator {
+    background: #00DFC0;
+}
+.controlQ:hover input:not([disabled]):checked ~ .controlQ_indicator,
+.controlQ input:checked:focus ~ .controlQ_indicator {
+    background: #00DFC0;
+}
+.controlQ input:disabled ~ .controlQ_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.controlQ_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.controlQ input:checked ~ .controlQ_indicator:after {
+    display: block;
+}
+.controlQ-checkbox .controlQ_indicator:after {
+    left: 11px;
+    top: 6px;
+    width: 7px;
+    height: 15px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.controlQ-checkbox input:disabled ~ .controlQ_indicator:after {
+    border-color: #7b7b7b;
+}
+
+
+/*******check-boxQ********/
+.bottom-border-col{
+  border-bottom:1px solid rgba(199,218,255, 0.8) !important
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .controlQ_indicator{
+    position: absolute;
+    top: -7px;    
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #B0CBFF;
+    left: 50px;
+  }
+}
+
+// .form-group{
+//   // padding:10px;
+//   border:2px solid;
+//   margin:10px;
+//   border-radius: 1.4285rem;
+// }
+// .form-group>label{
+//   position:absolute;
+//   top:139px;
+//   left:75px;
+//   background-color:white;
+// }
+
+// .form-group>input{
+//   border:none;
+// }
+
+
+    /**/
+
+    /*
+        * Blank page
+        */
+
+    .blank-page {
+      .content {
+        margin-left: 0;
+        // overflow-x hidden, overflow for y in sm screen issue resolved default
+        &.app-content {
+          overflow: overlay;
+          overflow-x: hidden;
+        }
+      }
+      // blank page content-wrapper
+      .content-wrapper {
+        padding: 0 !important;
+        margin-top: 0;
+        // content to be in center horizontally and vertically
+        .flexbox-container {
+          display: flex;
+          align-items: center;
+          height: 100vh;
+          justify-content: center;
+          overflow: hidden;
+        }
+      }
+    }
+    //Remove left margin for 1 column layout
+    &[data-col="1-column"] {
+      .content,
+      .footer {
+        margin-left: 0px !important;
+      }
+    }
+  }
+  .pace {
+    .pace-progress {
+      background: $primary;
+    }
+  }
+}
+
+.app-content.center-layout {
+  overflow: hidden;
+}
+
+/*
+* Col 3 layout for detached and general type
+*/
+
+@include media-breakpoint-up(lg) {
+  body {
+    // Normal sidebar
+    .content-right {
+      width: calc(100% - #{$sidebar-width});
+      float: right;
+    }
+    .content-left {
+      width: calc(100% - #{$sidebar-width});
+      float: left;
+    }
+    // Detached sidebar
+    .content-detached {
+      width: 100%;
+      &.content-right {
+        float: right;
+        margin-left: -$sidebar-width;
+        .content-body {
+          margin-left: calc(#{$sidebar-width} + #{$content-padding});
+        }
+      }
+      &.content-left {
+        float: left;
+        margin-right: -$sidebar-width;
+        .content-body {
+          margin-right: calc(#{$sidebar-width} + #{$content-padding});
+        }
+      }
+    }
+  }
+  .sidebar-right.sidebar-sticky {
+    float: right !important;
+    margin-left: -$sidebar-width;
+    width: $sidebar-width !important;
+    margin-top: $navbar-height + 1;
+  }
+  //left sticky sidebar
+  [data-col="content-left-sidebar"] {
+    .sticky-wrapper {
+      float: left;
+    }
+  }
+}
+
+.truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+@include media-breakpoint-down(xs) {
+  html body .content .content-wrapper {
+    padding: calc(#{$content-padding} - 0.4rem) calc(#{$content-padding} - 1rem)
+      0;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  body {
+    &.navbar-static,
+    &.navbar-sticky {
+      .app-content {
+        .header-navbar {
+          .navbar-container {
+            padding-left: 1rem;
+            padding-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// For Fullscreen IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  html.full-screen {
+    width: 100%;
+    .content.app-content {
+      height: 100%;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.vertical-layout {
+  .main-menu{
+    .navigation{
+      .menu-content{
+        li a{
+          svg:first-child{
+            margin-right: 1.38rem !important;
+          }
+          .menu-toggle-icon{
+            right: 9px;
+          }
+        }
+      }
+    }
+  }
+  &.menu-collapsed {
+    .main-menu.collapsed {
+      width: 80px;
+      transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      .badge,
+      svg.menu-toggle-icon,
+      .brand-text,
+      .navigation-header,
+      ul.menu-content {
+        display: none;
+      }
+    }
+    .app-content {
+      margin-left: 80px;
+      .header-navbar {
+        width: calc(100% - 4.4rem - 80px);
+      }
+    }
+    .footer {
+      margin-left: 80px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .vertical-layout {
+    .app-content {
+      margin-left: 0;
+      .header-navbar.floating-nav {
+        width: calc(100% - 4.4rem) !important;
+      }
+    }
+    .footer {
+      margin-left: 0;
+    }
+    .main-menu:not(.hide-sidebar) {
+      & ~ .sidenav-overlay {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .vertical-layout {
+    .app-content {
+      .header-navbar.floating-nav {
+        width: calc(100% - 2.4rem) !important;
+      }
+    }
+  }
+}

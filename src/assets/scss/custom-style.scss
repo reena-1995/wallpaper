@@ -1,0 +1,54 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.professional__title {
+  color: #6576a1;
+  font-size: 12px;
+  text-transform: capitalize;
+  //   font: normal normal normal 6px/5px;
+}
+.professional__title__dot {
+  position: relative;
+  &::after {
+    content: "";
+    left: -14px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    border: 2px solid #848fab;
+    background-color: #d4e8ff;
+    position: absolute;
+  }
+}
+.professional__badge {
+  background-color: #dba677;
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+}
+
+.professional__btn {
+  background-color: #6982f2;
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+}
+
+.professional__break {
+  font-size: 11px;
+}
+label {
+  padding-bottom: 0.5rem;
+}
+// .apexcharts-pie-area:hover {
+//   fill: #ff0099 !important;
+// }
+// .apexcharts-tooltip .apexcharts-tooltip-series-group.active {
+//   color: #ffffff !important;
+// }
+.apexcharts-tooltip-y-group {
+  color: white;
+  font-weight: bold;
+}
